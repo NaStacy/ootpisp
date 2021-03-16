@@ -62,5 +62,21 @@ namespace oop1
                 pictureBox1.Image = bmp;
             } 
         }
+
+        private void btnColor_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                btnColor.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void btnFill_Click(object sender, EventArgs e)
+        {
+            if (colorDialog2.ShowDialog() == DialogResult.OK)
+            {
+                btnColor.BackColor = colorDialog2.Color;
+            }
+        }
     }
 }
