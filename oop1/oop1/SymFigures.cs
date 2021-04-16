@@ -12,6 +12,8 @@ namespace oop1
     {
         public Pen pen { get; set; }
 
+        public Point[] point;
+
         public SymFigures(float thickness, Color color)
         {
             pen = new Pen(color, thickness);

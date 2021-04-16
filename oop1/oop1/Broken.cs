@@ -7,16 +7,13 @@ using System.Threading.Tasks;
 
 namespace oop1
 {
-    class Broken : SymFigures
-    {
-        private Point[] points { get; set; }
-        private Broken(float thickness, Color color, Point[] points) : base(thickness, color)
-        {
-            this.points = points;
-        }
+    public class Broken : SymFigures
+    { 
+        public Broken (float thickness, Color color) : base(thickness, color) { }
+
         public override void Draw(Graphics graphics)
         {
-            graphics.DrawPolygon(pen, points);
+            graphics.DrawLines(pen, point);
         }
 
     }

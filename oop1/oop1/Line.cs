@@ -7,18 +7,14 @@ using System.Threading.Tasks;
 
 namespace oop1
 {
-    class Line : SymFigures
+    public class Line : SymFigures
     {
-        private Point start { get; set; }
-        private Point finish { get; set; }
-        private Line (float thickness, Color color, Point start, Point finish): base(thickness, color)
-        {
-            this.start = start;
-            this.finish = finish;
-        }
+
+        public Line(float thickness, Color color) : base(thickness, color) { }
+
         public override void Draw(Graphics graphics)
         {
-            graphics.DrawLine(pen, start, finish);
+            graphics.DrawLine(pen, point[0], point[1]);
         }
 
     }

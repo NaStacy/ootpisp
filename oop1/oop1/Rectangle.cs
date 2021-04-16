@@ -7,25 +7,23 @@ using System.Threading.Tasks;
 
 namespace oop1
 {
-    class Rectangle : SymFigures
+    public class Rectangle : SymFigures
     {
         private Brush brush { get; set; }
-        private Point start { get; set; }
-        private Point finish { get; set; }
-        private Rectangle(float thickness, Color color, Color colorFill, Point start, Point finish) : base(thickness, color)
+
+
+        public Rectangle(float thickness, Color color, Color colorFill) : base(thickness, color) 
         {
             brush = new SolidBrush(colorFill);
-            this.start = start;
-            this.finish = finish;
         }
+
         public override void Draw(Graphics graphics)
         {
-            int width = Math.Abs(start.X - finish.X);
-            int length = Math.Abs(start.Y - finish.Y);
+            Point LeftPoint = new Point(Math.Min(point[0].X, point[1].X), Math.Min(point[0].Y, point[1].Y));
+            Point RightPoint = new Point(Math.Max(point[0].X, point[1].X), Math.Max(point[0].Y, point[1].Y));
 
-            graphics.DrawRectangle(pen, start.X, start.Y, width, length);
-            graphics.FillRectangle(brush, start.X, start.Y, width, length);
+            graphics.FillRectangle(brush, LeftPoint.X, LeftPoint.Y, RightPoint.X - LeftPoint.X, RightPoint.Y - LeftPoint.Y);
+            graphics.DrawRectangle(pen, LeftPoint.X, LeftPoint.Y, RightPoint.X - LeftPoint.X, RightPoint.Y - LeftPoint.Y);
         }
-
     }
 }

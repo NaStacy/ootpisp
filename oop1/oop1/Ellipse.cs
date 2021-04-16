@@ -7,30 +7,23 @@ using System.Threading.Tasks;
 
 namespace oop1
 {
-    class Ellipse : SymFigures
+    public class Ellipse : SymFigures
     {
-        private Point start { get; set; }
-        private Point finish { get; set; }
         private Brush brush { get; set; }
-        private Ellipse(float thickness, PointF start, PointF finish, Color color, Color colorFill) : base(thickness, color)
+
+        public Ellipse(float thickness, Color color, Color colorFill) : base(thickness, color) 
         {
-            PointF startPoint = new PointF(Math.Min(start.X, finish.X), Math.Min(start.Y, finish.Y));
-            PointF finishPoint = new PointF(Math.Max(start.X, finish.X), Math.Max(start.Y, finish.Y));
-
-            startPoint = start;
-            finishPoint = finish;
-
-            pen = new Pen(color, thickness);
             brush = new SolidBrush(colorFill);
         }
 
         public override void Draw(Graphics graphics)
         {
-            float width = finish.X - start.X;
-            float height = finish.Y - start.Y;
-
-            graphics.DrawEllipse(pen, start.X, start.Y, width, height);
-            graphics.FillEllipse(brush, start.X, start.Y, width, height);
+            float width = point[1].X - point[0].X;
+            float height = point[1].Y - point[0].Y;
+            
+            graphics.FillEllipse(brush, point[0].X, point[0].Y, width, height);
+            graphics.DrawEllipse(pen, point[0].X, point[0].Y, width, height);
+            
         }
     }
 }

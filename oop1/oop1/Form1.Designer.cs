@@ -49,6 +49,7 @@ namespace oop1
             this.labelColorF = new System.Windows.Forms.Label();
             this.btnFill = new System.Windows.Forms.Button();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
+            this.pbWrPolygon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBroken)).BeginInit();
@@ -57,6 +58,7 @@ namespace oop1
             ((System.ComponentModel.ISupportInitialize)(this.pbPolygon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownAngle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWrPolygon)).BeginInit();
             this.SuspendLayout();
             // 
             // btn
@@ -77,6 +79,11 @@ namespace oop1
             this.pictureBox1.Size = new System.Drawing.Size(925, 578);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
+            this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
+            this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
             // btnColor
             // 
@@ -97,6 +104,7 @@ namespace oop1
             this.pbLine.Size = new System.Drawing.Size(50, 50);
             this.pbLine.TabIndex = 3;
             this.pbLine.TabStop = false;
+            this.pbLine.Click += new System.EventHandler(this.pbLine_Click);
             // 
             // pbBroken
             // 
@@ -106,6 +114,7 @@ namespace oop1
             this.pbBroken.Size = new System.Drawing.Size(50, 50);
             this.pbBroken.TabIndex = 4;
             this.pbBroken.TabStop = false;
+            this.pbBroken.Click += new System.EventHandler(this.pbBroken_Click);
             // 
             // pbRectangle
             // 
@@ -115,24 +124,27 @@ namespace oop1
             this.pbRectangle.Size = new System.Drawing.Size(50, 50);
             this.pbRectangle.TabIndex = 5;
             this.pbRectangle.TabStop = false;
+            this.pbRectangle.Click += new System.EventHandler(this.pbRectangle_Click);
             // 
             // pbEllipse
             // 
             this.pbEllipse.Image = ((System.Drawing.Image)(resources.GetObject("pbEllipse.Image")));
-            this.pbEllipse.Location = new System.Drawing.Point(38, 58);
+            this.pbEllipse.Location = new System.Drawing.Point(12, 59);
             this.pbEllipse.Name = "pbEllipse";
             this.pbEllipse.Size = new System.Drawing.Size(50, 50);
             this.pbEllipse.TabIndex = 6;
             this.pbEllipse.TabStop = false;
+            this.pbEllipse.Click += new System.EventHandler(this.pbEllipse_Click);
             // 
             // pbPolygon
             // 
             this.pbPolygon.Image = ((System.Drawing.Image)(resources.GetObject("pbPolygon.Image")));
-            this.pbPolygon.Location = new System.Drawing.Point(95, 58);
+            this.pbPolygon.Location = new System.Drawing.Point(68, 58);
             this.pbPolygon.Name = "pbPolygon";
             this.pbPolygon.Size = new System.Drawing.Size(50, 50);
             this.pbPolygon.TabIndex = 7;
             this.pbPolygon.TabStop = false;
+            this.pbPolygon.Click += new System.EventHandler(this.pbPolygon_Click);
             // 
             // numUpDownThickness
             // 
@@ -150,6 +162,7 @@ namespace oop1
             0,
             0,
             0});
+            this.numUpDownThickness.ValueChanged += new System.EventHandler(this.numUpDownThickness_ValueChanged);
             // 
             // labelThickness
             // 
@@ -190,6 +203,7 @@ namespace oop1
             0,
             0,
             0});
+            this.numUpDownAngle.ValueChanged += new System.EventHandler(this.numUpDownAngle_ValueChanged);
             // 
             // btnSer
             // 
@@ -238,12 +252,23 @@ namespace oop1
             this.btnFill.UseVisualStyleBackColor = false;
             this.btnFill.Click += new System.EventHandler(this.btnFill_Click);
             // 
+            // pbWrPolygon
+            // 
+            this.pbWrPolygon.Image = ((System.Drawing.Image)(resources.GetObject("pbWrPolygon.Image")));
+            this.pbWrPolygon.Location = new System.Drawing.Point(124, 58);
+            this.pbWrPolygon.Name = "pbWrPolygon";
+            this.pbWrPolygon.Size = new System.Drawing.Size(50, 50);
+            this.pbWrPolygon.TabIndex = 18;
+            this.pbWrPolygon.TabStop = false;
+            this.pbWrPolygon.Click += new System.EventHandler(this.pbWrPolygon_Click);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1117, 588);
+            this.Controls.Add(this.pbWrPolygon);
             this.Controls.Add(this.btnFill);
             this.Controls.Add(this.labelColorF);
             this.Controls.Add(this.labelColorP);
@@ -271,6 +296,7 @@ namespace oop1
             ((System.ComponentModel.ISupportInitialize)(this.pbPolygon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownThickness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownAngle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWrPolygon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,6 +323,7 @@ namespace oop1
         private System.Windows.Forms.Label labelColorF;
         private System.Windows.Forms.Button btnFill;
         private System.Windows.Forms.ColorDialog colorDialog2;
+        private System.Windows.Forms.PictureBox pbWrPolygon;
     }
 }
 
