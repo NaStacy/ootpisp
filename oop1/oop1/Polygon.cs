@@ -10,8 +10,10 @@ namespace oop1
     public class Polygon : SymFigures
     {
         private PointF[] corners;
-        public int cornersNum;
+
         private Brush brush { get; set; }
+
+        public int cornersNum;
 
         public Polygon(float thickness, Color color, Color colorFill) : base(thickness, color) 
         {
@@ -21,10 +23,11 @@ namespace oop1
         public override void Draw(Graphics graphics)
         {
             corners = new PointF[cornersNum];
-            corners[0] = point[1];
-            PointF o = point[0];
+            corners[0] = endPoint;
+
+            PointF o = startPoint;
             PointF polar = new PointF(1 * (float)Math.Cos(Math.Acos(-1.0) * 2 / cornersNum), 1 * (float)Math.Sin(Math.Acos(-1.0) * 2 / cornersNum));
-            PointF radNext = new PointF(point[1].X - o.X, point[1].Y - o.Y);
+            PointF radNext = new PointF(endPoint.X - o.X, endPoint.Y - o.Y);
             PointF temp = new PointF();
 
             for (int i = 1; i < cornersNum; i++)

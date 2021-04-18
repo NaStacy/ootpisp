@@ -18,11 +18,11 @@ namespace oop1
 
         public override void Draw(Graphics graphics)
         {
-            float width = point[1].X - point[0].X;
-            float height = point[1].Y - point[0].Y;
+            float width = endPoint.X - startPoint.X;
+            float height = endPoint.Y - startPoint.Y;
             
-            graphics.FillEllipse(brush, point[0].X, point[0].Y, width, height);
-            graphics.DrawEllipse(pen, point[0].X, point[0].Y, width, height);
+            graphics.FillEllipse(brush, startPoint.X, startPoint.Y, width, height);
+            graphics.DrawEllipse(pen, startPoint.X, startPoint.Y, width, height);
             
         }
     }

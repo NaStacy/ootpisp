@@ -30,7 +30,6 @@ namespace oop1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
-            this.btn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnColor = new System.Windows.Forms.Button();
             this.pbLine = new System.Windows.Forms.PictureBox();
@@ -60,16 +59,6 @@ namespace oop1
             ((System.ComponentModel.ISupportInitialize)(this.numUpDownAngle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbWrPolygon)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn
-            // 
-            this.btn.Location = new System.Drawing.Point(5, 522);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(168, 59);
-            this.btn.TabIndex = 0;
-            this.btn.Text = "generate figure";
-            this.btn.UseVisualStyleBackColor = true;
-            this.btn.Click += new System.EventHandler(this.btn_Click);
             // 
             // pictureBox1
             // 
@@ -285,7 +274,6 @@ namespace oop1
             this.Controls.Add(this.pbLine);
             this.Controls.Add(this.btnColor);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btn);
             this.Name = "Form";
             this.Text = "geometric figures";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -303,8 +291,6 @@ namespace oop1
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.PictureBox pbLine;

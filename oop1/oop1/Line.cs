@@ -9,13 +9,11 @@ namespace oop1
 {
     public class Line : SymFigures
     {
-
         public Line(float thickness, Color color) : base(thickness, color) { }
 
         public override void Draw(Graphics graphics)
         {
-            graphics.DrawLine(pen, point[0], point[1]);
+            graphics.DrawLine(pen, startPoint, endPoint);
         }
-
     }
 }

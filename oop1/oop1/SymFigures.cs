@@ -12,12 +12,17 @@ namespace oop1
     {
         public Pen pen { get; set; }
 
-        public Point[] point;
+        protected Point startPoint;
+        protected Point endPoint;
 
         public SymFigures(float thickness, Color color)
         {
             pen = new Pen(color, thickness);
         }
+
+        public virtual Point StartPoint { get { return startPoint; } set { startPoint = value; } }
+        public virtual Point EndPoint { get { return endPoint; } set { endPoint = value; } }
+
         public abstract void Draw(Graphics graphics);
     }
 }
