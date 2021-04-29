@@ -15,8 +15,9 @@ namespace oop1
         private ICreate creator;
         private SymFigures figure;
 
-        private FigList figList;
-        
+        private Undo figList;
+        private Redo figStack;
+
         private Point start;
         private Point end;
         
@@ -30,7 +31,8 @@ namespace oop1
 
         public Form()
         {
-            figList = new FigList();
+            figList = new Undo();
+            figStack = new Redo();
             
             color = Color.Red;
             colorFill = Color.Yellow;
@@ -139,6 +141,7 @@ namespace oop1
                 {
                     figure.EndPoint = end;
                     figList.Add(figure);
+                    figStack.CleanStack();
                 }
             }
         }
@@ -170,6 +173,7 @@ namespace oop1
                     {
                         drow = !drow;
                         figList.Add(figure);
+                        figStack.CleanStack();
                     }
                 }
             }
@@ -195,6 +199,24 @@ namespace oop1
             if (drow)
             {
                 figure.Draw(e.Graphics);
+            }
+        }
+        private void btnRedo_Click(object sender, EventArgs e)
+        {
+            if (figStack.isChecked())
+            {
+                figList.Add(figStack.Pop());
+
+                pictureBox1.Refresh();
+            }
+        }
+
+        private void btnUndo_Click(object sender, EventArgs e)
+        {
+            if (figList.isChecked())
+            {
+                figStack.Push(figList.Remove());
+                pictureBox1.Refresh();
             }
         }
     }

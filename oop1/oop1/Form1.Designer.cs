@@ -49,6 +49,8 @@ namespace oop1
             this.btnFill = new System.Windows.Forms.Button();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.pbWrPolygon = new System.Windows.Forms.PictureBox();
+            this.btnUndo = new System.Windows.Forms.Button();
+            this.btnRedo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBroken)).BeginInit();
@@ -251,12 +253,34 @@ namespace oop1
             this.pbWrPolygon.TabStop = false;
             this.pbWrPolygon.Click += new System.EventHandler(this.pbWrPolygon_Click);
             // 
+            // btnUndo
+            // 
+            this.btnUndo.Location = new System.Drawing.Point(12, 373);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(78, 30);
+            this.btnUndo.TabIndex = 20;
+            this.btnUndo.Text = "Undo";
+            this.btnUndo.UseVisualStyleBackColor = true;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            // 
+            // btnRedo
+            // 
+            this.btnRedo.Location = new System.Drawing.Point(96, 373);
+            this.btnRedo.Name = "btnRedo";
+            this.btnRedo.Size = new System.Drawing.Size(78, 30);
+            this.btnRedo.TabIndex = 21;
+            this.btnRedo.Text = "Redo";
+            this.btnRedo.UseVisualStyleBackColor = true;
+            this.btnRedo.Click += new System.EventHandler(this.btnRedo_Click);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1117, 588);
+            this.Controls.Add(this.btnRedo);
+            this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.pbWrPolygon);
             this.Controls.Add(this.btnFill);
             this.Controls.Add(this.labelColorF);
@@ -310,6 +334,8 @@ namespace oop1
         private System.Windows.Forms.Button btnFill;
         private System.Windows.Forms.ColorDialog colorDialog2;
         private System.Windows.Forms.PictureBox pbWrPolygon;
+        private System.Windows.Forms.Button btnUndo;
+        private System.Windows.Forms.Button btnRedo;
     }
 }
 
