@@ -4,15 +4,20 @@ using System.Text;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace oop1
 {
+    [DataContract]
     public class Polygon : SymFigures
     {
+        [DataMember]
         private PointF[] corners;
 
+        [DataMember]
         private Brush brush { get; set; }
 
+        [DataMember]
         public int cornersNum;
 
         public Polygon(float thickness, Color color, Color colorFill) : base(thickness, color) 
@@ -22,6 +27,8 @@ namespace oop1
 
         public override void Draw(Graphics graphics)
         {
+            SetPen();
+
             corners = new PointF[cornersNum];
             corners[0] = endPoint;
 

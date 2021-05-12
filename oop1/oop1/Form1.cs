@@ -28,11 +28,13 @@ namespace oop1
         private int ang;
 
         private bool drow;
+        private Serial serial;
 
         public Form()
         {
             figList = new Undo();
             figStack = new Redo();
+            serial = new Serial();
             
             color = Color.Red;
             colorFill = Color.Yellow;
@@ -218,6 +220,17 @@ namespace oop1
                 figStack.Push(figList.Remove());
                 pictureBox1.Refresh();
             }
+        }
+
+        private void btnSer_Click(object sender, EventArgs e)
+        {
+            serial.Serialization(figList);
+        }
+
+        private void btnDeser_Click(object sender, EventArgs e)
+        {
+            figList = serial.Deserialisation();
+            pictureBox1.Refresh();
         }
     }
 }

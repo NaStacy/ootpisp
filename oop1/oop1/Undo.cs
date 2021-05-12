@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Drawing;
+using System.Runtime.Serialization;
 
 namespace oop1
 {
+    [DataContract]
     public class Undo
     {
+        [DataMember]
         private List<SymFigures> figureList;
         public Undo()
         {

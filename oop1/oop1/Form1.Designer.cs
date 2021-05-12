@@ -204,6 +204,7 @@ namespace oop1
             this.btnSer.TabIndex = 13;
             this.btnSer.Text = "Serialization";
             this.btnSer.UseVisualStyleBackColor = true;
+            this.btnSer.Click += new System.EventHandler(this.btnSer_Click);
             // 
             // btnDeser
             // 
@@ -213,6 +214,7 @@ namespace oop1
             this.btnDeser.TabIndex = 14;
             this.btnDeser.Text = "Deserialization";
             this.btnDeser.UseVisualStyleBackColor = true;
+            this.btnDeser.Click += new System.EventHandler(this.btnDeser_Click);
             // 
             // labelColorP
             // 

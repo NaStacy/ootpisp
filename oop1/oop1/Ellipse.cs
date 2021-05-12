@@ -4,11 +4,14 @@ using System.Text;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace oop1
 {
+    [DataContract]
     public class Ellipse : SymFigures
     {
+        [DataMember]
         private Brush brush { get; set; }
 
         public Ellipse(float thickness, Color color, Color colorFill) : base(thickness, color) 
@@ -18,6 +21,9 @@ namespace oop1
 
         public override void Draw(Graphics graphics)
         {
+
+            SetPen();
+
             float width = endPoint.X - startPoint.X;
             float height = endPoint.Y - startPoint.Y;
             

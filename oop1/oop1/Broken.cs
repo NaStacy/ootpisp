@@ -4,11 +4,14 @@ using System.Text;
 using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace oop1
 {
+    [DataContract]
     public class Broken : SymFigures
     {
+        [DataMember]
         private List<Point> points = new List<Point>();
 
         public Broken (float thickness, Color color) : base(thickness, color) { }
@@ -42,6 +45,7 @@ namespace oop1
 
         public override void Draw(Graphics graphics)
         {
+            SetPen();
             graphics.DrawLines(pen, points.ToArray());
         }
 
