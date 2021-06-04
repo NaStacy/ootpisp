@@ -51,6 +51,8 @@ namespace oop1
             this.pbWrPolygon = new System.Windows.Forms.PictureBox();
             this.btnUndo = new System.Windows.Forms.Button();
             this.btnRedo = new System.Windows.Forms.Button();
+            this.PluginButton = new System.Windows.Forms.Button();
+            this.PluginComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBroken)).BeginInit();
@@ -275,12 +277,34 @@ namespace oop1
             this.btnRedo.UseVisualStyleBackColor = true;
             this.btnRedo.Click += new System.EventHandler(this.btnRedo_Click);
             // 
+            // PluginButton
+            // 
+            this.PluginButton.Location = new System.Drawing.Point(12, 515);
+            this.PluginButton.Name = "PluginButton";
+            this.PluginButton.Size = new System.Drawing.Size(161, 32);
+            this.PluginButton.TabIndex = 22;
+            this.PluginButton.Text = "New Plugin";
+            this.PluginButton.UseVisualStyleBackColor = true;
+            this.PluginButton.Click += new System.EventHandler(this.PluginButton_Click);
+            // 
+            // PluginComboBox
+            // 
+            this.PluginComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PluginComboBox.FormattingEnabled = true;
+            this.PluginComboBox.Location = new System.Drawing.Point(13, 553);
+            this.PluginComboBox.Name = "PluginComboBox";
+            this.PluginComboBox.Size = new System.Drawing.Size(160, 28);
+            this.PluginComboBox.TabIndex = 23;
+            this.PluginComboBox.SelectedIndexChanged += new System.EventHandler(this.PluginComboBox_SelectedIndexChanged);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(1117, 588);
+            this.Controls.Add(this.PluginComboBox);
+            this.Controls.Add(this.PluginButton);
             this.Controls.Add(this.btnRedo);
             this.Controls.Add(this.btnUndo);
             this.Controls.Add(this.pbWrPolygon);
@@ -338,6 +362,8 @@ namespace oop1
         private System.Windows.Forms.PictureBox pbWrPolygon;
         private System.Windows.Forms.Button btnUndo;
         private System.Windows.Forms.Button btnRedo;
+        private System.Windows.Forms.Button PluginButton;
+        private System.Windows.Forms.ComboBox PluginComboBox;
     }
 }
 

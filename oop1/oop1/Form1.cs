@@ -14,6 +14,7 @@ namespace oop1
     {
         private ICreate creator;
         private SymFigures figure;
+        private Type factory;
 
         private Undo figList;
         private Redo figStack;
@@ -30,11 +31,14 @@ namespace oop1
         private bool drow;
         private Serial serial;
 
+        private Plugin plugin;
+
         public Form()
         {
             figList = new Undo();
             figStack = new Redo();
             serial = new Serial();
+            plugin = new Plugin();
             
             color = Color.Red;
             colorFill = Color.Yellow;
@@ -231,6 +235,23 @@ namespace oop1
         {
             figList = serial.Deserialisation();
             pictureBox1.Refresh();
+        }
+
+        private void PluginButton_Click(object sender, EventArgs e)
+        {
+            string pluginName = plugin.NewPlugin();
+            if (pluginName != "")
+            {
+                PluginComboBox.Items.Add(pluginName);
+            }
+        }
+
+        private void PluginComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string pluginName = PluginComboBox.GetItemText(PluginComboBox.SelectedItem);
+
+            factory = plugin.GetPlugin(pluginName);
+            creator = (ICreate)Activator.CreateInstance(factory);
         }
     }
 }
